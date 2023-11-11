@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Sen',
+        colorScheme: ColorScheme.light(),
       ),
       home: HomePage(),
     );

@@ -136,6 +136,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Center(child: const Text('Anatomy')),
+        backgroundColor: Colors.lightBlueAccent,
+        elevation: 0,
+      ),
       backgroundColor: Colors.lightBlueAccent,
       body: SafeArea(
         child: Column(
@@ -145,7 +150,7 @@ class HomePage extends StatelessWidget {
               height: 40,
             ),
             Text(
-              'Gallery',
+              '!!',
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w600,
@@ -196,7 +201,7 @@ class HomePage extends StatelessWidget {
                         tag: 'logo$index',
                         child: Container(
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
                               image: AssetImage(_images[index].imagePath),
                               fit: BoxFit.cover,
@@ -224,10 +229,10 @@ class ImageDetails {
   final String title;
   final String details;
   ImageDetails({
-    @required this.imagePath,
-    @required this.price,
-    @required this.photographer,
-    @required this.title,
-    @required this.details,
+    required this.imagePath,
+    required this.price,
+    required this.photographer,
+    required this.title,
+    required this.details,
   });
 }
