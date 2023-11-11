@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:photo_view/photo_view.dart';
+
+import 'hero_photo_view_route_wrapper.dart';
 
 class DetailsPage extends StatelessWidget {
   final String imagePath;
@@ -23,9 +24,7 @@ class DetailsPage extends StatelessWidget {
           title,
         ),
         centerTitle: true,
-        iconTheme: IconThemeData(
-          color: Colors.black,
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.lightBlueAccent,
         elevation: 0,
       ),
@@ -34,17 +33,32 @@ class DetailsPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Expanded(
-                child: Hero(
-                  tag: 'logo$index',
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(15),
-                          bottomRight: Radius.circular(15)),
-                      image: DecorationImage(
-                        image: AssetImage(imagePath),
-                        fit: BoxFit.cover,
-                      ),
+                //On tap, open an inspector
+                child: Container(
+                  child: Center(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HeroPhotoViewRouteWrapper(
+                              imageProvider: AssetImage(imagePath),
+                              backgroundDecoration:
+                                  BoxDecoration(color: Colors.black87),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  //Detailpage image
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(15),
+                        bottomRight: Radius.circular(15)),
+                    image: DecorationImage(
+                      image: AssetImage(imagePath),
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
